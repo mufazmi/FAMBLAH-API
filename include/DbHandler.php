@@ -755,10 +755,9 @@ class DbHandler
         $stmt->bind_param("ssss",$tokenId,$userId,$userId,$tokenId);
         $stmt->execute();
         $stmt->store_result();
-        if ($stmt->num_rows()==1) 
-        {
+        if ($stmt->num_rows()==1)
             return true;
-        }
+        
         else
         {
             return false;

@@ -3,15 +3,14 @@
 ///////////////////////////////////////////////////// CHANGED INFORMATION /////////////////////////////////////////////////////
 
 //Database Connection
-define('DB_NAME','socialapifriendssystem');   //your database username
+define('DB_NAME','famblah');   //your database username
 define('DB_USER', 'root');          //your database name
 define('DB_PASS', '');              //your database password
 define('DB_HOST', 'localhost');     //your database host name
 
 //Website Information
 // define('WEBSITE_DOMAIN', 'http://10.0.2.2/SocialApiFriendsSystemVideoThumb/public/');               //your domain name
-define('WEBSITE_DOMAIN', 'http://172.16.0.111/SocialApiFriendsSystemVideoThumb/public/');               //your domain name
-// define('WEBSITE_DOMAIN', 'http://socialcodia.net/SocialApiFriendsSystemVideo/public/');               //your domain name
+define('WEBSITE_DOMAIN', 'http://socialcodia.net/SocialApiFriendsSystemVideoThumb/public/');               //your domain name
 define('WEBSITE_EMAIL', 'socialcodia@gmail.com');                    //your email address
 define('WEBSITE_EMAIL_PASSWORD', 'PASSWORD');                        //your email password
 define('WEBSITE_EMAIL_FROM', 'Social Codia');                        // your website name here
