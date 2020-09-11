@@ -13,7 +13,7 @@ define('DB_HOST', 'localhost');     //your database host name
 define('WEBSITE_DOMAIN', 'http://172.16.0.111/SocialApiFriendsSystemVideoThumb/public/');               //your domain name
 // define('WEBSITE_DOMAIN', 'http://socialcodia.net/SocialApiFriendsSystemVideo/public/');               //your domain name
 define('WEBSITE_EMAIL', 'socialcodia@gmail.com');                    //your email address
-define('WEBSITE_EMAIL_PASSWORD', 'uumair88');                        //your email password
+define('WEBSITE_EMAIL_PASSWORD', 'PASSWORD');                        //your email password
 define('WEBSITE_EMAIL_FROM', 'Social Codia');                        // your website name here
 define('WEBSITE_NAME', 'FAMBLAH');                              //your website name here
 define('WEBSITE_OWNER_NAME', 'Umair Farooqui');                      //your name, or anyones name, we will send this name with email verification mail.
