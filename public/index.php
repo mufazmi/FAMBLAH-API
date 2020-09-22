@@ -559,7 +559,7 @@ $app->get('/user/{username}/images', function(Request $request, Response $respon
             }
             else
             {
-                returnException(true,"No Friend Found",$response);
+                returnException(true,"No Image Found",$response);
             }
         }
         else
@@ -824,6 +824,10 @@ $app->post('/feed/post', function(Request $request, Response $response)         
             else if ($result==FEED_POST_FAILED) 
             {
                 returnException(true,"Oops...! Failed To Post Your Feed",$response);
+            }
+            else
+            {
+                returnException(true,"Something Went Wrong".$result,$response);
             }
         }
     }

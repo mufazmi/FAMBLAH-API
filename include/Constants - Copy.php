@@ -3,23 +3,22 @@
 ///////////////////////////////////////////////////// CHANGED INFORMATION /////////////////////////////////////////////////////
 
 //Database Connection
-define('DB_NAME','famblah');   //your database username
-define('DB_USER', 'root');          //your database name
-define('DB_PASS', '');              //your database password
-define('DB_HOST', 'localhost');     //your database host name
+define('DB_NAME','3529708_famblahapi');   //your database username
+define('DB_USER', '3529708_famblahapi');          //your database name
+define('DB_PASS', 'uumair88');              //your database password
+define('DB_HOST', 'fdb30.awardspace.net');     //your database host name
 
 //Website Information
-define('WEBSITE_DOMAIN', 'http://111.111.111.111/SocialApiFriendsSystemVideoThumb/public/');               //your domain name
-// define('WEBSITE_DOMAIN', 'http://socialcodia.net/SocialApiFriendsSystemVideoThumb/public/');               //your domain name
-define('WEBSITE_EMAIL', 'socialcodia@gmail.com');                    //your email address
-define('WEBSITE_EMAIL_PASSWORD', 'PASSWORD');                        //your email password
+define('WEBSITE_DOMAIN', 'http://famblah.cf/public/');               //your domain name
+define('WEBSITE_EMAIL', 'info@famblah.cf');                    //your email address
+define('WEBSITE_EMAIL_PASSWORD', 'uumair88');                        //your email password
 define('WEBSITE_EMAIL_FROM', 'Social Codia');                        // your website name here
 define('WEBSITE_NAME', 'FAMBLAH');                              //your website name here
 define('WEBSITE_OWNER_NAME', 'Umair Farooqui');                      //your name, or anyones name, we will send this name with email verification mail.
 
-define('DEFAULT_USER_IMAGE', 'uploads/api/user.png');
+define('DEFAULT_USER_IMAGE', 'http://famblah.cf//public/uploads/api/user.png');
 
-define('JWT_SECRET_KEY', 'SocialCodia');  							//your jwt secret key, Please use a very dificult secret key, which no one can guess it.
+define('JWT_SECRET_KEY', 'SocialCodia');  								//your jwt secret key, Please use a very dificult secret key, which no one can guess it.
 
 ///////////////////////////////////////////// END CHANGE INFORMATION /////////////////////////////////////////////////////
 
@@ -90,12 +89,12 @@ define('FOLLOW_FAILED', 601);
 define('UNFOLLOWED', 602);
 define('UNFOLLOW_FAILED', 603);
 
-define('VIDEO_POSTED', "Video Posted");
-define('VIDEO_POST_FAILED', "Failed To Post Video");
+define('VIDEO_POSTED', 604);
+define('VIDEO_POST_FAILED', 605);
 
 
-define('ALREADY_FRIEND', "Alredy Friend");
-define('NOT_A_FRIEND', "Not A Friend");
+define('ALREADY_FRIEND', 606);
+define('NOT_A_FRIEND', 607);
 define('FRIEND_REQUEST_SENDER', 608);
 define('FRIEND_REQUEST_RECEIVER', 609);
 define('COMMENT_LIKED', 700);

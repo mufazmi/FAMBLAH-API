@@ -376,46 +376,37 @@ class DbHandler
         $query = "INSERT INTO contact_us (userId,name,email,message) VALUES(?,?,?,?)";
         $stmt = $this->con->prepare($query);
         $stmt->bind_param("ssss",$userId,$name,$email,$message);
-        if ($stmt->execute()) 
-        {
+        if ($stmt->execute())
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     function postFeed($id, $content, $file)
     {
         if ($file!=null) 
         {
-            if ($file->type=='image/jpg' || $file->type=='image/jpeg' || $file->type=='image/png')
+            //WARNING WARNING WARNING  || $file->type=='application/octet-stream' is invalid it will video type file in image section,
+            if ($file->type=='image/jpg' || $file->type=='image/jpeg' || $file->type=='image/png' || $file->type=='application/octet-stream')
             {
                 $imageUrl = $this->uploadImage($file);
                 $result = $this->postImageFeed($imageUrl, $content, $id);
                 if ($result)
-                {
                     return FEED_POSTED;
-                }
                 else
-                {
                     return FEED_POST_FAILED;
-                } 
             }
-            else if ($file->type=='video/mp4')
+            else if ($file->type=='video/mp4' || $file->type=='application/octet-stream')
             {
                 $videoUrl = $this->uploadFeedVideo($file);
                 $result = $this->postVideoFeed($videoUrl, $content, $id);
                 if ($result)
-                {
                     return FEED_POSTED;
-                }
                 else
-                {
                     return FEED_POST_FAILED;
-                } 
             }
+            else
+                return FEED_POST_FAILED;
         }
         else
         {
@@ -423,14 +414,10 @@ class DbHandler
             $query = "INSERT INTO feeds (userId,feedContent,feedType) VALUES(?,?,?)";
             $stmt = $this->con->prepare($query);
             $stmt->bind_param("sss",$id,$content,$feedType);
-            if ($stmt->execute()) 
-            {
+            if ($stmt->execute())
                 return FEED_POSTED;
-            }
             else
-            {
                 return FEED_POST_FAILED;
-            }
         }
     }
 
@@ -580,7 +567,7 @@ class DbHandler
             $feed = array();
             $feed['feedUserId'] = $userId;
             $feed['feedId'] = $id;
-            $feed['feedImage'] = WEBSITE_DOMAIN.$image;
+            $feed['feedImage'] = $image;
             $feed['feedContent'] = $content;
             $feed['feedType'] = $feedType;
             $feed['feedTimestamp'] = $timestamp;
@@ -710,16 +697,19 @@ class DbHandler
         $stmt->bind_param("s",$userId);
         $stmt->execute();
         $stmt->bind_result($feedImage,$image);
-        while ($stmt->fetch()) 
+        if ($stmt->num_rows>0) 
         {
-            if (!empty($image)) 
+            while ($stmt->fetch()) 
             {
-                $imag['feedId'] = $feedImage;
-                $imag['feedImage'] = WEBSITE_DOMAIN.$image;
+                if (!empty($image)) 
+                {
+                    $image['feedId'] = $feedImage;
+                    $image['feedImage'] = WEBSITE_DOMAIN.$image;
+                }
+                array_push($images, $image);
             }
-            array_push($images, $imag);
+            return $images;
         }
-        return $images;
     }
 
     function checkCommentLike($userId,$commentId)
